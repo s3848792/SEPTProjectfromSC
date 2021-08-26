@@ -11,7 +11,7 @@ import com.example.bookmicroservices.services.BookService;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/api/books")
+@RequestMapping("/api/book")
 public class bookController {
 
     @Autowired
@@ -27,10 +27,6 @@ public class bookController {
 
         return  new ResponseEntity<Book>(newBook, HttpStatus.CREATED);
     }
-    @DeleteMapping("")
-    public ResponseEntity<?> deleteBook(@Valid @RequestBody Book book, BindingResult result){
 
-        return  new ResponseEntity<Book>(book, HttpStatus.ACCEPTED);
-    }
 
 }
