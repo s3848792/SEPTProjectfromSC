@@ -4,13 +4,14 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import com.example.bookmicroservices.model.Book;
 
-public interface BookRepository {
 
 
     @Repository
-    public interface UserRepository extends CrudRepository<Book, Long> {
+    public interface BookRepository extends CrudRepository<Book, Long> {
 
         Book findByTitle(String title);
         Book getById(Long id);
+
+        @Override
+        Iterable<Book> findAllById(Iterable<Long> iterable);
     }
-}
