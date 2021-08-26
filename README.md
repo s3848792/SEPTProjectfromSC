@@ -3,22 +3,20 @@
 # Group Day-Time
 
 ## Members
-* xxxxx
-* xxxxx
-* xxxxx
-* xxxxx
+James Murray
+William Furler
+Ezadin omar
+Ruiyang Fu
 
 ## Records
 
-* Github repository :https://github.com/xxx
-* jira Board : https://xxxx
-* Google Docs : https://drive.google.com/xxxx
+* Github repository 
+* jira Board 
+* Google Docs 
 
 	
 ## Code documentation - Release 0.1.0 - date
-* feature 1
-* feature 2
-* feature 3
+Book Microservice: Backend currently being implemented
   
 
 To run the application locally : 

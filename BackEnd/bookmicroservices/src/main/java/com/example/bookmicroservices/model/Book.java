@@ -17,7 +17,7 @@ public class Book {
     private Long id;
 
     @NotBlank(message="Title is Required")
-    private String Title;
+    private String title;
     @NotBlank(message="Author is Required")
     private String Author;
     @NotBlank(message="ISBN is Required")
@@ -38,11 +38,11 @@ public class Book {
     }
 
     public String getTitle() {
-        return Title;
+        return title;
     }
 
     public void setTitle(String title) {
-        Title = title;
+        this.title = title;
     }
 
     public String getAuthor() {

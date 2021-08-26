@@ -12,6 +12,5 @@ import com.example.bookmicroservices.model.Book;
         Book findByTitle(String title);
         Book getById(Long id);
 
-        @Override
-        Iterable<Book> findAllById(Iterable<Long> iterable);
+
     }
