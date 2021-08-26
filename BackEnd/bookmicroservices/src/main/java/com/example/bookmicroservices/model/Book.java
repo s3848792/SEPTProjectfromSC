@@ -5,6 +5,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.Date;
 import java.util.Collection;
 
@@ -15,9 +16,11 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
+    @NotBlank(message="Title is Required")
     private String Title;
+    @NotBlank(message="Author is Required")
     private String Author;
+    @NotBlank(message="ISBN is Required")
     private String ISBN;
     private Date create_At;
     private Date update_At;
