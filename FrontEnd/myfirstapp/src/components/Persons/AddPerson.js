@@ -9,11 +9,12 @@ class AddPerson extends Component {
         super();
 
         this.state= {
-        name: "",
-        personIdentifier: "",
-        desc: "",
-        start_date: "",
-        end_date: ""
+        username: "",
+        fullName: "",
+        password: "",
+        confirmPassword: "",
+        create_At: "",
+        update_At: ""
      
     }; 
     this.onChange = this.onChange.bind(this);
@@ -27,11 +28,12 @@ class AddPerson extends Component {
     onSubmit(e){
         e.preventDefault();
         const newPerson = {
-            name: this.state.name,
-            personIdentifier: this.state.personIdentifier,
-            desc: this.state.desc,
-            start_date:this.state.start_date,
-            end_date: this.state.end_date  
+            username: this.state.username,
+            fullName: this.state.fullName,
+            password: this.state.password,
+            confirmPassword: this.state.confirmPassword,
+            create_At: this.state.create_At,
+            update_At: this.state.update_At
         }
 
         this.props.createPerson(newPerson, this.props.history);
@@ -47,45 +49,55 @@ class AddPerson extends Component {
                         <form onSubmit={this.onSubmit}>
                             <div className="form-group">
                                 <input type="text" className="form-control form-control-lg " 
-                                placeholder="Person Name" 
-                                name="name"
-                                value= {this.state.name}
+                                placeholder="username"
+                                name="username"
+                                value= {this.state.username}
                                 onChange = {this.onChange}
                                 />
                                 
                             </div>
                             <div className="form-group">
                                 <input type="text" className="form-control form-control-lg" 
-                                placeholder="Unique Person ID"
-                                name="personIdentifier"
-                                value= {this.state.personIdentifier}
+                                placeholder="Full Name"
+                                name="fullName"
+                                value= {this.state.fullName}
                                 onChange = {this.onChange}
                                     />
                             </div>
                           
                             <div className="form-group">
                                 <textarea className="form-control form-control-lg" 
-                                placeholder="Person Description"
-                                name = "desc"
-                                value= {this.state.desc}
+                                placeholder="Password"
+                                name = "password"
+                                value= {this.state.password}
                                 onChange = {this.onChange}
                                 />
                                 
 
                             </div>
-                            <h6>Start Date</h6>
+                            <div className="form-group">
+                                 <textarea className="form-control form-control-lg"
+                                 placeholder="Confirm Password"
+                                 name = "confirmPassword"
+                                 value= {this.state.confirmPassword}
+                                 onChange = {this.onChange}
+                             />
+
+                            </div>
+
+                            <h6>Created</h6>
                             <div className="form-group">
                                 <input type="date" className="form-control form-control-lg" 
-                                name="start_date"
-                                value= {this.state.start_date}
+                                name="create_At"
+                                value= {this.state.create_At}
                                 onChange = {this.onChange}
                                 />
                             </div>
-                            <h6>Estimated End Date</h6>
+                            <h6>Updated</h6>
                             <div className="form-group">
                                 <input type="date" className="form-control form-control-lg" 
-                                name="end_date" 
-                                value= {this.state.end_date}
+                                name="update_At"
+                                value= {this.state.update_At}
                                 onChange = {this.onChange}
                                 />
                             </div>

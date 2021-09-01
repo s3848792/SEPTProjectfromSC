@@ -16,9 +16,9 @@ public class Book {
     @NotBlank(message="Title is Required")
     private String title;
     @NotBlank(message="Author is Required")
-    private String Author;
+    private String author;
     @NotBlank(message="ISBN is Required")
-    private String ISBN;
+    private String isbn;
     private Date create_At;
     private Date update_At;
 
@@ -43,19 +43,19 @@ public class Book {
     }
 
     public String getAuthor() {
-        return Author;
+        return author;
     }
 
     public void setAuthor(String author) {
-        Author = author;
+        this.author = author;
     }
 
     public String getISBN() {
-        return ISBN;
+        return isbn;
     }
 
-    public void setISBN(String ISBN) {
-        this.ISBN = ISBN;
+    public void setISBN(String isbn) {
+        this.isbn = isbn;
     }
 
     public Date getCreate_At() {

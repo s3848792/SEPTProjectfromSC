@@ -59,6 +59,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(
                         "/",
+                        "/h2-console/**",
                         "/favicon.ico",
                         "/**/*.png",
                         "/**/*.gif",
@@ -69,9 +70,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/**/*.js"
                 ).permitAll()
                 .antMatchers(SecurityConstant.SIGN_UP_URLS).permitAll()
-                //.antMatchers("/api/users/**").permitAll()
+                .antMatchers("/api/users/**").permitAll()
+                .antMatchers("/api/**").permitAll()
                 .antMatchers(SecurityConstant.H2_URL).permitAll()
                 .anyRequest().authenticated();
+        http.csrf().disable();
+        http.headers().frameOptions().disable();
 
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
     }

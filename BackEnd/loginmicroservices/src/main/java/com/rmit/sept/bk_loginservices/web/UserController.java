@@ -9,6 +9,7 @@ import com.rmit.sept.bk_loginservices.services.MapValidationErrorService;
 import com.rmit.sept.bk_loginservices.services.UserService;
 import com.rmit.sept.bk_loginservices.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -27,6 +28,7 @@ import static com.rmit.sept.bk_loginservices.security.SecurityConstant.TOKEN_PRE
 
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api/users")
 public class UserController {
 
@@ -42,14 +44,21 @@ public class UserController {
 
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@Valid @RequestBody User user, BindingResult result){
+        System.out.println("\n\n\n---A person is being added---\n\n\n");
         // Validate passwords match
         userValidator.validate(user,result);
-
+        System.out.println("Validation of person done");
         ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
-        if(errorMap != null)return errorMap;
+        System.out.println("errorMap of person done");
 
+        if(errorMap != null) {
+            System.out.println("Damn its returning an error map");
+            System.out.println(errorMap);
+            return errorMap;
+        }
+        System.out.println("No errors occured");
         User newUser = userService.saveUser(user);
-
+        System.out.println("---Returning from method---\n\n\n");
         return  new ResponseEntity<User>(newUser, HttpStatus.CREATED);
     }
 
