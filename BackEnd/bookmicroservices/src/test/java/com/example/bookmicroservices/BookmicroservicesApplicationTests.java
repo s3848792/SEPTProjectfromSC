@@ -2,6 +2,8 @@ package com.example.bookmicroservices;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 @SpringBootTest
 class BookmicroservicesApplicationTests {
@@ -9,5 +11,4 @@ class BookmicroservicesApplicationTests {
     @Test
     void contextLoads() {
     }
-
 }
