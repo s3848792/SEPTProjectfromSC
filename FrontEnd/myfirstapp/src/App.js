@@ -11,6 +11,8 @@ import store from "./store";
 import Landing from "./components/Layout/Landing";
 import Register from "./components/UserManagement/Register";
 import Login from "./components/UserManagement/Login";
+import AddBook from "./components/Books/AddBook"
+import BookView from "./components/Books/BookView"
 
 
 class App extends Component {
@@ -27,7 +29,8 @@ class App extends Component {
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
-
+            <Route exact path="/addbook" component={AddBook} />
+            <Route exact path="/viewbooks" component={BookView} />
             {
               //Private Routes
             }
