@@ -19,4 +19,6 @@ import com.example.bookmicroservices.model.Book;
         public Book saveOrUpdateBook(Book book) {
             return bookRepository.save(book);
         }
+
+        public Iterable<Book> getBooks() { return bookRepository.findAll(); }
     }

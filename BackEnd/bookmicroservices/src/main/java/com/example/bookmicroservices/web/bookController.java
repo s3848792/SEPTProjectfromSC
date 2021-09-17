@@ -44,4 +44,11 @@ public class bookController {
         return  new ResponseEntity<Book>(newBook, HttpStatus.CREATED);
     }
 
+    @ResponseBody
+    @GetMapping("/all")
+    public Iterable<Book> getBook() {
+        System.out.println("Getting all Books");
+        return bookService.getBooks();
+    }
+
 }
