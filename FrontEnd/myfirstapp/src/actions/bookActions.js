@@ -1,5 +1,5 @@
 import axios from "axios";
-import {GET_ERRORS, GET_BOOKS} from "./types";
+import {GET_ERRORS, GET_BOOKS, GET_BOOK} from "./types";
 
 export const createBook = (book, history) => async dispatch => {
   try {
@@ -19,4 +19,16 @@ export const getBooks = () => async dispatch => {
     type: GET_BOOKS,
     payload: res.data
   });
+};
+
+export const getBook = (book, history) => async dispatch => {
+  try {
+    const res = await axios.get(`/api/book/${id}`);
+    dispatch({
+      type: GET_BOOK,
+      payload: res.data
+    });
+  } catch (error) {
+    history.push("/dashboard");
+  }
 };
