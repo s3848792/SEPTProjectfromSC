@@ -8,17 +8,15 @@ jobs:
         environment:
           POSTGRES_USER: root
           POSTGRES_DB: circle-test
-
     steps:
       - checkout
       - restore_cache:
-          key: circleci-SEPTProjectfromSC-{{ checksum "pom.xml" }}
-      - run: ./mvnw dependency:go-offline
+          key: v1-dependencies-{{ checksum "pom.xml" }}
+      - run: ./mvnw -Dmaven.test.skip=true package
       - save_cache:
           paths:
             - ~/.m2
-          key: circleci-SEPTProjectfromSC-{{ checksum "pom.xml" }}
-      - run: ./mvnw package
+          key: v1-dependencies-{{ checksum "pom.xml" }}
       - store_test_results:
           path: target/surefire-reports
       - store_artifacts:
