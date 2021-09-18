@@ -1,0 +1,7 @@
+com/example/bookmicroservices/security/SecurityConstant.class
+com/example/bookmicroservices/BookmicroservicesApplication.class
+com/example/bookmicroservices/services/BookService.class
+com/example/bookmicroservices/web/bookController.class
+com/example/bookmicroservices/security/SecurityConfig.class
+com/example/bookmicroservices/model/Book.class
+com/example/bookmicroservices/Repositories/BookRepository.class
