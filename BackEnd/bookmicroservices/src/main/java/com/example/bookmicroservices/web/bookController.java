@@ -22,17 +22,6 @@ public class bookController {
 
     @PostMapping("/addbook")
     public ResponseEntity<?> createNewBook(@Valid @RequestBody Book book, BindingResult result){
-        System.out.println("\n\n\n---Book Being Added---");
-        System.out.println("Author");
-        System.out.println(book.getAuthor());
-        System.out.println("\nISBN");
-        System.out.println(book.getISBN());
-        System.out.println("\nID");
-        System.out.println(book.getId());
-        System.out.println("\nTitle");
-        System.out.println(book.getTitle());
-        System.out.println("\nCreated At");
-        System.out.println(book.getCreate_At());
         if(result.hasErrors()){
             System.out.println("It has errors. Here they are");
             System.out.println(result);
@@ -51,4 +40,14 @@ public class bookController {
         return bookService.getBooks();
     }
 
+
+    @GetMapping("get/{id}")
+    public Book getBookByID(@PathVariable(value = "id") long bookId){
+        System.out.println("The get book thing has been called and is running from backed");
+        Book b = bookService.loadBookById(bookId);
+        System.out.println("The request for a book has been sent with title below");
+        System.out.println(b.getTitle());
+
+        return b;
+    }
 }

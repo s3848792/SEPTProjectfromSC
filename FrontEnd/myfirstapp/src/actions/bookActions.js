@@ -4,7 +4,7 @@ import {GET_ERRORS, GET_BOOKS, GET_BOOK} from "./types";
 export const createBook = (book, history) => async dispatch => {
   try {
     const res = await axios.post("http://localhost:8080/api/book/addbook", book);
-    history.push("/dashboard");
+    history.push("/viewbooks");
   } catch (err) {
     dispatch({
       type: GET_ERRORS,
@@ -22,14 +22,16 @@ export const getBooks = () => async dispatch => {
   });
 };
 
-export const getBook = (id, history) => async dispatch => {
+export const getBook = (id) => async dispatch => {
   try {
-    const res = await axios.get(`/api/book/${id}`);
+    console.log("About to get a book");
+    const res = await axios.get(`http://localhost:8080/api/book/get/${id}`);
+    console.log("Got the book");
     dispatch({
       type: GET_BOOK,
       payload: res.data
     });
   } catch (error) {
-    history.push("/dashboard");
+    console.log("Error with getting book");
   }
 };
