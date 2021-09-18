@@ -15,13 +15,14 @@ export const createBook = (book, history) => async dispatch => {
 
 export const getBooks = () => async dispatch => {
   const res = await axios.get("http://localhost:8080/api/book/all");
+  console.log("\nAll books data has been retrieved from database.\n");
   dispatch({
     type: GET_BOOKS,
     payload: res.data
   });
 };
 
-export const getBook = (book, history) => async dispatch => {
+export const getBook = (id, history) => async dispatch => {
   try {
     const res = await axios.get(`/api/book/${id}`);
     dispatch({

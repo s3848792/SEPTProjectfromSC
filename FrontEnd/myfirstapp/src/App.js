@@ -13,7 +13,7 @@ import Landing from "./components/Layout/Landing";
 import Register from "./components/UserManagement/Register";
 import Login from "./components/UserManagement/Login";
 import AddBook from "./components/Books/AddBook"
-import BookView from "./components/Books/Book"
+import BookView from "./components/Books/Books"
 
 
 class App extends Component {
