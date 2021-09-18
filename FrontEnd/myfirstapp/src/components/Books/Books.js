@@ -14,7 +14,9 @@ class ViewBook extends Component {
         };
     }
 
-
+    createLink(book) {
+        return "/book/" + book.id;
+    }
 
     render() {
         // this.props.books will be all the books that the user has entered in the database.
@@ -27,7 +29,9 @@ class ViewBook extends Component {
                                 <ul>
                                     <ol>
                                         {this.props.books.map((book) => (
-                                            <li key={book.title}>{book.title} : {book.author}</li>
+                                            <li key={book.title}>
+                                                {book.title} written by  {book.author} - <a href={this.createLink(book)}>View</a>
+                                            </li>
                                         ))}
                                     </ol>
                                 </ul>

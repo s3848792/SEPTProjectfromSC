@@ -14,6 +14,7 @@ import Register from "./components/UserManagement/Register";
 import Login from "./components/UserManagement/Login";
 import AddBook from "./components/Books/AddBook"
 import BookView from "./components/Books/Books"
+import ViewSingleBook from "./components/Books/Book";
 
 
 class App extends Component {
@@ -32,6 +33,7 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
             <Route exact path="/addbook" component={AddBook} />
             <Route exact path="/viewbooks" component={BookView} />
+            <Route exact path="/book/:id" component={ViewSingleBook} />
             {
               //Private Routes
             }
