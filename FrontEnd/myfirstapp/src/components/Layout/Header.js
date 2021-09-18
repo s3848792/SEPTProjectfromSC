@@ -24,19 +24,19 @@ import React, { Component } from 'react'
     
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
-                            <a className="nav-link " href="register">
+                            <a className="nav-link " href="/register">
                                 Sign Up
                             </a>
                         </li>
 
                         <li className="nav-item">
-                            <a className="nav-link " href="bookview">
+                            <a className="nav-link " href="/bookview">
                                 Bookview
                             </a>
                         </li>
 
                         <li className="nav-item">
-                            <a className="nav-link" href="login">
+                            <a className="nav-link" href="/login">
                                 Login
                             </a>
                         </li>

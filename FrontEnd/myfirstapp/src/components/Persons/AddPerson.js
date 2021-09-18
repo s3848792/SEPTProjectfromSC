@@ -72,8 +72,6 @@ class AddPerson extends Component {
                                 value= {this.state.password}
                                 onChange = {this.onChange}
                                 />
-                                
-
                             </div>
                             <div className="form-group">
                                  <textarea className="form-control form-control-lg"
