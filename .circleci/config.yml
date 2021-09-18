@@ -12,12 +12,12 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: circleci-demo-java-spring-{{ checksum "pom.xml" }}
+          key: circleci-SEPTProjectfromSC-{{ checksum "pom.xml" }}
       - run: ./mvnw dependency:go-offline
       - save_cache:
           paths:
             - ~/.m2
-          key: circleci-demo-java-spring-{{ checksum "pom.xml" }}
+          key: circleci-SEPTProjectfromSC-{{ checksum "pom.xml" }}
       - run: ./mvnw package
       - store_test_results:
           path: target/surefire-reports
