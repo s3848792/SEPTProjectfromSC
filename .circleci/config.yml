@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/src
     docker:
-      - image: circleci/openjdk:8-jdk-strech
+      - image: cimg/base:2021.04
       - image: circleci/postgres:9.6.3-alpine
         environment:
           POSTGRES_USER: root
