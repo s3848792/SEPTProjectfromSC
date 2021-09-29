@@ -15,6 +15,7 @@ import Login from "./components/UserManagement/Login";
 import AddBook from "./components/Books/AddBook"
 import BookView from "./components/Books/Books"
 import ViewSingleBook from "./components/Books/Book";
+import User from "./components/UserManagement/User";
 
 
 class App extends Component {
@@ -34,6 +35,7 @@ class App extends Component {
             <Route exact path="/addbook" component={AddBook} />
             <Route exact path="/viewbooks" component={BookView} />
             <Route exact path="/book/:id" component={ViewSingleBook} />
+            <Route exact path="/profile" component={User} />
             {
               //Private Routes
             }

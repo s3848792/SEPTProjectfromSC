@@ -1,6 +1,37 @@
 import React, { Component } from 'react'
 
  class Header extends Component {
+
+     constructor() {
+         super();
+         var token = JSON.parse(localStorage.saveData || null) || {};
+         console.log(token);
+
+         //saveData.loginToken = loginToken;
+         //saveData.time = new Date().getTime();
+         //localStorage.saveData = JSON.stringify(saveData);
+         this.state={
+             isLoggedIn: token.loginToken.success,
+         };
+        console.log(this.state.isLoggedIn);
+     }
+
+     createUserHTML() {
+         if (this.state.isLoggedIn) {
+            return (
+                <a className="nav-link" href="/profile">
+                    Profile
+                </a>
+            );
+         }else {
+             return (
+                 <a className="nav-link" href="/login">
+                     Login
+                 </a>
+             );
+         }
+     }
+
     render() {
         return (
             <div>
@@ -30,15 +61,13 @@ import React, { Component } from 'react'
                         </li>
 
                         <li className="nav-item">
-                            <a className="nav-link " href="/bookview">
+                            <a className="nav-link " href="/viewbooks">
                                 Bookview
                             </a>
                         </li>
 
                         <li className="nav-item">
-                            <a className="nav-link" href="/login">
-                                Login
-                            </a>
+                            {this.createUserHTML()}
                         </li>
                     </ul>
                 </div>
