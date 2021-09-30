@@ -1,5 +1,5 @@
 import axios from "axios";
-import {GET_ERRORS, GET_BOOKS, GET_BOOK} from "./types";
+import {GET_ERRORS, GET_BOOKS, GET_BOOK, SEARCH_BOOKS} from "./types";
 
 export const createBook = (book, history) => async dispatch => {
   try {
@@ -33,5 +33,19 @@ export const getBook = (id) => async dispatch => {
     });
   } catch (error) {
     console.log("Error with getting book");
+  }
+};
+
+export const searchBooks = (keyword) => async dispatch => {
+  try {
+    console.log("About to get a book");
+    const res = await axios.get(`http://localhost:8080/api/book/search/${keyword}`);
+    console.log("Got the book");
+    dispatch({
+      type: SEARCH_BOOKS,
+      payload: res.data
+    });
+  } catch (error) {
+    console.log("Error with searching books");
   }
 };

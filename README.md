@@ -1,4 +1,4 @@
-# RMIT SEPT 2021 Major Project
+cd backend# RMIT SEPT 2021 Major Project
 
 # Group Day-Time
 

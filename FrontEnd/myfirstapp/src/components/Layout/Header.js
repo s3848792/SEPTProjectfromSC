@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import Search from './search';
+
 
  class Header extends Component {
     render() {
@@ -41,6 +43,7 @@ import React, { Component } from 'react'
                             </a>
                         </li>
                     </ul>
+                    <Search />
                 </div>
             </div>
         </nav>

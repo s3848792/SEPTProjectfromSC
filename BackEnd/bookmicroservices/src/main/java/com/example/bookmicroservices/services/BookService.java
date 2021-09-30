@@ -20,9 +20,14 @@ public class BookService {
 
     public Iterable<Book> getBooks() { return bookRepository.findAll(); }
 
+    public Iterable<Book> search(String keyword){
+        return bookRepository.search(keyword);
+    }
+
     @Transactional
     public Book loadBookById(Long id){
         Book book = bookRepository.getById(id);
         return book;
     }
+
 }
