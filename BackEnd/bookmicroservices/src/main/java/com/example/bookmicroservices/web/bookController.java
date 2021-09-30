@@ -57,8 +57,8 @@ public class bookController {
     public Iterable<Book> search(@PathVariable(value = "keyword") String keyword, Model model){
         System.out.println("keyword: " + keyword);
         Iterable<Book> searchResult = bookService.search(keyword);
-//        model.addAttribute("keyword", keyword);
-//        model.addAttribute("searchResult", searchResult);
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("searchResult", searchResult);
         return searchResult;
     }
 }

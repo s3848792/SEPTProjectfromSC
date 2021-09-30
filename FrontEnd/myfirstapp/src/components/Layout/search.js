@@ -1,25 +1,44 @@
 import React, { Component } from "react";
-import {connect} from "react-redux";
 import {searchBooks} from "../../actions/bookActions";
+import {connect} from "react-redux";
 
 
-const SearchBar = () => (
-    <form action="/" method="get">
-        <label htmlFor="header-search">
-            <span className="visually-hidden"></span>
-        </label>
-        <input
-            type="text"
-            id="header-search"
-            placeholder="Search books"
-            name="s"
-        />
-        <button type="submit">Search</button>
-    </form>
-);
+class SearchBar extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state= {
+        };
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        const s = event.target.elements.s;
+        console.log(s.value);
+        this.props.searchBooks(s.value, this.props.history);
+    };
+
+    render() {
+        return (
+            <form onSubmit={this.handleSubmit}>
+                <label htmlFor="header-search">
+                    <span className="visually-hidden">Search</span>
+                </label>
+                <input
+                    type="text"
+                    id="header-search"
+                    placeholder="Search books"
+                    name="s"
+                />
+                <input type="submit" />
+            </form>
+        )
+    }
+}
 
 
 export default connect(
     null,
-    { searchBooks },
+    { searchBooks }
 )(SearchBar);
+
