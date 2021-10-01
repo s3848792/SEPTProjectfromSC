@@ -66,13 +66,22 @@ That should be all you will need to do for the setup
 Firsly, go into the bookmicroservices /src/main/resources/application.properties file and changes the datasource url to the following: 
 ####`jdbc:mysql://bookeroo-db/bookeroo`
 
-Next, clean and rebuild the bookmicroservice through intellij following the full maven build process (except for site and deploy).
+Next, clean and rebuild the bookmicroservices through intellij following the full maven build process (except for site and deploy).
 Then, cd into the bookmicroservices directory and run the following to build the docker container:
 ####`docker image build -t bookmicroservices .`
 
 After this, you can run this container by entering the following command:
 ####`docker container run --network bookeroo-network --name bookmicroservices -p 8080:8080 -d bookmicroservices`
 
-Then it should run as expected
 
+## loginmicroservices
+Firsly, go into the loginmicroservices /src/main/resources/application.properties file and changes the datasource url to the following:
+####`jdbc:mysql://bookeroo-db/bookeroo`
+
+Next, clean and rebuild the loginmicroservices through intellij following the full maven build process (except for site and deploy).
+Then, cd into the loginmicroservices directory and run the following to build the docker container:
+####`docker image build -t loginmicroservices .`
+
+After this, you can run this container by entering the following command:
+####`docker container run --network bookeroo-network --name loginmicroservices -p 8081:8081 -d loginmicroservices`
 
