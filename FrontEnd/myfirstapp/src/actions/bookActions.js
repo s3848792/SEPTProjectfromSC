@@ -36,16 +36,15 @@ export const getBook = (id) => async dispatch => {
   }
 };
 
-export const searchBooks = (keyword, history) => async dispatch => {
+export const searchBooks = (keyword) => async dispatch => {
   try {
     console.log("About to get the books");
     const res = await axios.get(`http://localhost:8081/api/book/search/${keyword}`);
-    console.log("Got the books");
     dispatch({
       type: SEARCH_BOOKS,
       payload: res.data
     });
-    history.push(`/search/${keyword}`);
+    console.log("Got the books");
   } catch (error) {
     console.log("Error with searching books");
   }

@@ -7,9 +7,6 @@ import {connect} from "react-redux";
 class BookSearch extends Component {
     constructor(props) {
         super(props);
-        this.state= {
-            books: props
-        };
     }
 
     createLink(book) {
@@ -25,12 +22,11 @@ class BookSearch extends Component {
                         <section>
                             <nav>
                                 <ul>
-                                    <h2>Hello World</h2>
+                                    <h2>Hello Wold</h2>
                                     <ol>
                                         {this.props.books.map((book) => (
                                             <li key={book.title}>
                                                 {book.title} written by  {book.author} - <a href={this.createLink(book)}>View</a>
-
                                             </li>
                                         ))}
                                     </ol>
@@ -51,6 +47,7 @@ BookSearch.propTypes = {
 function mapStateToProps(state, ownProps) {
     return {books: state.book.books}
 }
+
 export default connect(
     mapStateToProps,
     { searchBooks },
