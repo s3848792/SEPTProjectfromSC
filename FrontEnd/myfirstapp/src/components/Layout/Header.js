@@ -10,9 +10,16 @@ import React, { Component } from 'react'
          //saveData.loginToken = loginToken;
          //saveData.time = new Date().getTime();
          //localStorage.saveData = JSON.stringify(saveData);
-         this.state={
-             isLoggedIn: token.loginToken.success,
-         };
+         try {
+             this.state={
+                 isLoggedIn: token.loginToken.success,
+             };
+         }catch {
+             this.state={
+                 isLoggedIn: false,
+             };
+         }
+
         console.log(this.state.isLoggedIn);
      }
 
