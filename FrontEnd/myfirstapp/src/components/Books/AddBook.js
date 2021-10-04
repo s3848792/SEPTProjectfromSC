@@ -12,6 +12,8 @@ class AddBook extends Component {
         id: "",
         title: "",
         author: "",
+        status:true,
+        number:0,
         isbn: "",
         create_At: "",
         update_At: ""
@@ -31,6 +33,8 @@ class AddBook extends Component {
             id: this.state.id,
             title: this.state.title,
             author: this.state.author,
+            status:true,
+            number:this.state.number,
             isbn: this.state.isbn,
             create_At: this.state.create_At,
             update_At: this.state.update_At
@@ -74,6 +78,25 @@ class AddBook extends Component {
                                  />
 
                              </div>
+
+                            <h6>Status</h6>
+                            <div className="form-group">
+                                <label htmlFor="true">true</label>
+                                <input type="radio" name="status" id="true"/>
+                            </div>
+                            <div className="form-group">
+                                <input type="text" className="form-control form-control-lg "
+                                       placeholder="If it's ture, enter the number"
+                                       name="number"
+                                       value= {this.state.number}
+                                       onChange = {this.onChange}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="false">false</label>
+                                <input type="radio" name="status" id="false"/>
+                            </div>
+
 
                             <div className="form-group">
                                 <input type="text" className="form-control form-control-lg"
