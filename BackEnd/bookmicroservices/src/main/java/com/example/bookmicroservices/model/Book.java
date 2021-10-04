@@ -17,7 +17,10 @@ public class Book {
     private String title;
     @NotBlank(message="Author is Required")
     private String author;
+    @NotBlank(message="status is Required")
+    private boolean status;
     @NotBlank(message="ISBN is Required")
+    private Long number;
     private String isbn;
     private Date create_At;
     private Date update_At;
@@ -40,6 +43,22 @@ public class Book {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public Boolean getstatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
+
+    public Long getNumber() {
+        return number;
+    }
+
+    public void setNumber(Long number) {
+        this.number = number;
     }
 
     public String getAuthor() {
