@@ -24,6 +24,7 @@ class ViewSingleBook extends Component {
 
                     <li key={"Title"}>Title: {this.props.book.title}</li>
                     <li key={"Author"}>Author: {this.props.book.author}</li>
+                    <li key={"status"}>status: {this.props.book.status}</li>
                 </div>
             );
 
