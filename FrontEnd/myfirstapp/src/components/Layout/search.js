@@ -15,7 +15,10 @@ class SearchBar extends Component {
         event.preventDefault();
         const s = event.target.elements.s;
         console.log(s.value);
-        this.props.searchBooks(s.value);
+        //this.props.searchBooks(s.value);
+        const val = "/search/" + s.value;
+        console.log(val);
+        window.location.replace(val);
     };
 
     render() {

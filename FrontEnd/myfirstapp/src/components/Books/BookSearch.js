@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import {searchBooks} from "../../actions/bookActions";
+import {getBooks, searchBooks} from "../../actions/bookActions";
+import {GET_BOOKS} from "../../actions/types";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 
@@ -7,6 +8,11 @@ import {connect} from "react-redux";
 class BookSearch extends Component {
     constructor(props) {
         super(props);
+        const {keyword} = props.match.params
+        props.searchBooks(keyword);
+        this.state= {
+            books: []
+        };
     }
 
     createLink(book) {
@@ -20,9 +26,9 @@ class BookSearch extends Component {
                 <div className="container">
                     <div className="row">
                         <section>
+                            <h1>Results</h1>
                             <nav>
                                 <ul>
-                                    <h2>Hello Wold</h2>
                                     <ol>
                                         {this.props.books.map((book) => (
                                             <li key={book.title}>
@@ -45,7 +51,11 @@ BookSearch.propTypes = {
 };
 
 function mapStateToProps(state, ownProps) {
-    return {books: state.book.books}
+    try {
+        return {books: Object.values(state.book.searchResult)}
+    } catch {
+        return {books: []}
+    }
 }
 
 export default connect(
