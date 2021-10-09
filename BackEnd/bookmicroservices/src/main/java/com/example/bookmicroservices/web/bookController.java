@@ -2,6 +2,8 @@ package com.example.bookmicroservices.web;
 
 import com.example.bookmicroservices.model.Book;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import com.example.bookmicroservices.services.BookService;
 
+import javax.naming.directory.SearchResult;
 import javax.validation.Valid;
 
 @RestController
@@ -49,5 +52,14 @@ public class bookController {
         System.out.println(b.getTitle());
 
         return b;
+    }
+
+    @GetMapping("/search/{keyword}")
+    public Iterable<Book> search(@PathVariable(value = "keyword") String keyword, Model model){
+        System.out.println("keyword: " + keyword);
+        Iterable<Book> searchResult = bookService.search(keyword);
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("searchResult", searchResult);
+        return searchResult;
     }
 }

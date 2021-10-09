@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import Search from './search';
+
 
  class Header extends Component {
 
@@ -70,6 +72,7 @@ import React, { Component } from 'react'
                             {this.createUserHTML()}
                         </li>
                     </ul>
+                    <Search />
                 </div>
             </div>
         </nav>
