@@ -30,7 +30,7 @@ class ViewBook extends Component {
                                     <ol>
                                         {this.props.books.map((book) => (
                                             <li key={book.title}>
-                                                {book.title} written by  {book.author} - <a href={this.createLink(book)}>View</a>
+                                                {book.title} written by  {book.author}  status:{book.status}- <a href={this.createLink(book)}>View</a>
                                             </li>
                                         ))}
                                     </ol>
