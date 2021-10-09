@@ -1,3 +1,24 @@
+## Dockerisation Notes
+
+To run these commands, you may be able to run within intellij however for me it only worked running it in wsl once intellij was closed. I think this is because intellij keeps some files open in the background which stops docker from building properly.
+
+To build the docker image, run the following:
+### `docker build -t frontend .`
+
+Then, once that is done, use the following to start the frontend
+### `docker run -it -p 3000:3000 -d frontend`
+
+Now it is running.
+
+To test it is running, you can go to localhost:3000 to see the webpage.
+
+To stop the server, run the following command
+### `docker kill <CONTAINER ID>`
+
+To get the container ID, run the following:
+### `docker ps`
+
+
 This project is a demo for Basecode SEPT2021 assignment for the front-end. It has been integrated with back-end
 
 Please send your questions to amirhomayoon.ashrafzadeh@rmit.edu.au  

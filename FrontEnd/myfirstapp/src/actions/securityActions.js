@@ -4,7 +4,7 @@ import {GET_ERRORS, LOGIN_SUCCESS} from "./types";
 export const createNewUser = (newUser, history) => async dispatch => {
     console.log("Creating user in security actions");
     try{
-        const res = await axios.post("http://localhost:8080/api/users/register", newUser);
+        const res = await axios.post("http://localhost:8081/api/users/register", newUser);
         history.push("/login");
         // dispatch({
         //     type: GET_ERRORS,
@@ -24,7 +24,7 @@ export const login = (LoginRequest, history) => async dispatch => {
     console.log("Initiated login request from frontend security actions.js line 27");
     try {
         //post => login request
-        const res = await axios.post("http://localhost:8080/api/users/login", LoginRequest);
+        const res = await axios.post("http://localhost:8081/api/users/login", LoginRequest);
         //extract token from res.data
         const loginToken = res.data
         //set our token in the local storage
