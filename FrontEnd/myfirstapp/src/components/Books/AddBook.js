@@ -12,7 +12,7 @@ class AddBook extends Component {
         id: "",
         title: "",
         author: "",
-        status:true,
+        status:false,
         number:0,
         isbn: "",
         create_At: "",
@@ -27,13 +27,21 @@ class AddBook extends Component {
     onChange(e){
         this.setState({[e.target.name]: e.target.value});
     }
+
+    statusFalse() {
+        this.state.status = false;
+    }
+    statusTrue() {
+        this.state.status = true;
+    }
+
     onSubmit(e){
         e.preventDefault();
         const newBook = {
             id: this.state.id,
             title: this.state.title,
             author: this.state.author,
-            status:true,
+            status:this.state.status,
             number:this.state.number,
             isbn: this.state.isbn,
             create_At: this.state.create_At,
@@ -81,8 +89,8 @@ class AddBook extends Component {
 
                             <h6>Status</h6>
                             <div className="form-group">
-                                <label htmlFor="true">true</label>
-                                <input type="radio" name="status" id="true"/>
+                                <label htmlFor="true">For Sale </label>
+                                <input type="radio" name="status" id="true" value={this.state.status} onChange={this.statusTrue.bind(this)}/>
                             </div>
                             <div className="form-group">
                                 <input type="text" className="form-control form-control-lg "
@@ -93,8 +101,8 @@ class AddBook extends Component {
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="false">false</label>
-                                <input type="radio" name="status" id="false"/>
+                                <label htmlFor="false">Not For Sale </label>
+                                <input type="radio" name="status" id="false" onChange={this.statusFalse.bind(this)} checked="checked"/>
                             </div>
 
 

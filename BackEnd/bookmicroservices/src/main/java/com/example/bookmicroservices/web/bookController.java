@@ -25,6 +25,7 @@ public class bookController {
 
     @PostMapping("/addbook")
     public ResponseEntity<?> createNewBook(@Valid @RequestBody Book book, BindingResult result){
+        System.out.println("Adding Book method Called");
         if(result.hasErrors()){
             System.out.println("It has errors. Here they are");
             System.out.println(result);

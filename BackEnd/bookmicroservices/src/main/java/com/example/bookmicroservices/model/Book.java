@@ -17,10 +17,9 @@ public class Book {
     private String title;
     @NotBlank(message="Author is Required")
     private String author;
-    @NotBlank(message="status is Required")
     private boolean status;
-    @NotBlank(message="ISBN is Required")
     private Long number;
+    @NotBlank(message="ISBN is Required")
     private String isbn;
     private Date create_At;
     private Date update_At;
@@ -102,8 +101,5 @@ public class Book {
     protected void onUpdate() {
         this.update_At = new Date();
     }
-
-
-
 
 }
