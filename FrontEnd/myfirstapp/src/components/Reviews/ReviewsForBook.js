@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {getReviewsByBook} from "../../actions/reviewActions";
+import LeaveReviewButton from "./LeaveReviewButton";
 
 
 class ReviewsForBook extends Component {
@@ -12,10 +13,31 @@ class ReviewsForBook extends Component {
         console.log(id);
         props.getReviewsByBook(id);
         this.state= {
-            reviews: null
+            reviews: null,
+            bookID: id
         };
     }
-
+    shouldLeaveReview() {
+        const token = JSON.parse(localStorage.saveData || null) || {};
+        console.log("Token");
+        console.log(token);
+        console.log(token.loginToken.success)
+        try {
+            if (token.loginToken.success) {
+                return LeaveReviewButton(this.state.bookID);
+            }else {
+                console.log("token else")
+                return (
+                    <p>You need to login to review this book</p>
+                )
+            }
+        }catch {
+            console.log("catch part");
+            return (
+                <p>You need to login to review this book</p>
+            )
+        }
+    }
     render() {
         // this.props.books will be all the books that the user has entered in the database.
         return (
@@ -24,16 +46,25 @@ class ReviewsForBook extends Component {
                     <div className="row">
                         <section>
                             <nav>
-                                <ul>
-                                    <ol>
-                                        {this.props.reviews.map((review) => (
-                                            <div>
-                                                <h3>{review.rating} stars given</h3>
-                                                {review.review}
+                                {this.shouldLeaveReview()}
+                                <br/>
+                                <br/>
+                                {this.props.reviews.map((review) => (
+                                    <div>
+                                        <div className="card w-50">
+                                            <div className="card-header">
+                                                {review.rating} stars
                                             </div>
-                                        ))}
-                                    </ol>
-                                </ul>
+                                            <div className="card-body">
+                                                <blockquote className="blockquote mb-0">
+                                                    <p>{review.review}</p>
+                                                    <footer className="blockquote-footer"><cite title="Source Title">{review.userID}</cite></footer>
+                                                </blockquote>
+                                            </div>
+                                        </div>
+                                        <br/>
+                                    </div>
+                                ))}
                             </nav>
                         </section>
                     </div>

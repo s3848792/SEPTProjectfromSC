@@ -4,7 +4,7 @@ import {GET_ERRORS, GET_REVIEWS_BY_BOOK, GET_REVIEWS_BY_USER} from "./types";
 export const addReview = (review, history) => async dispatch => {
     try {
         const res = await axios.post("http://localhost:8082/api/review/addreview", review);
-        history.push("/viewbooks");
+        history.push(`/book/${review.bookID}`);
     } catch (err) {
         console.log("review error");
         dispatch({
