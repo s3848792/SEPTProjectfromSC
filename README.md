@@ -85,3 +85,5 @@ Then, cd into the loginmicroservices directory and run the following to build th
 After this, you can run this container by entering the following command:
 ####`docker container run --network bookeroo-network --name loginmicroservices -p 8081:8081 -d loginmicroservices`
 
+
+ALTER TABLE review ADD FULLTEXT(bookid, userid);

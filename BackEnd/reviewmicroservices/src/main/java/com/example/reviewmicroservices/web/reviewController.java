@@ -44,7 +44,7 @@ public class reviewController {
 
     @GetMapping("/getbybookid/{bookid}")
     public Iterable<Review> search(@PathVariable(value = "bookid") String keyword, Model model){
-        System.out.println("keyword: " + keyword);
+        System.out.println("Searching for reviews with id: " + keyword);
         Iterable<Review> searchResult = reviewService.getByBookID(keyword);
         model.addAttribute("keyword", keyword);
         model.addAttribute("searchResult", searchResult);

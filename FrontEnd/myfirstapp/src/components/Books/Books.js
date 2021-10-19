@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {getBooks} from "../../actions/bookActions";
-import {GET_BOOKS} from "../../actions/types";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 

@@ -3,6 +3,7 @@ import {getBook} from "../../actions/bookActions";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import LeaveReviewButton from "../Reviews/LeaveReviewButton";
+import ReviewsForBook from "../Reviews/ReviewsForBook";
 
 
 class ViewSingleBook extends Component {
@@ -11,7 +12,8 @@ class ViewSingleBook extends Component {
         const {id} = props.match.params
         props.getBook(id);
         this.state= {
-            book: null
+            book: null,
+            id: id
         };
     }
 
@@ -42,6 +44,7 @@ class ViewSingleBook extends Component {
                     <li key={"Author"}>Author: {this.props.book.author}</li>
                     <li key={"status"}>status: {this.props.book.status}</li>
                     {this.shouldLeaveReview()}
+                    <ReviewsForBook valueFromParent={this.state.id}/>
                 </div>
 
             );

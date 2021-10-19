@@ -2,9 +2,7 @@ import axios from "axios";
 import {GET_ERRORS, GET_REVIEWS_BY_BOOK, GET_REVIEWS_BY_USER} from "./types";
 
 export const addReview = (review, history) => async dispatch => {
-    console.log("leaving a review");
     try {
-        console.log("trying to leave review");
         const res = await axios.post("http://localhost:8082/api/review/addreview", review);
         history.push("/viewbooks");
     } catch (err) {
@@ -18,7 +16,10 @@ export const addReview = (review, history) => async dispatch => {
 
 export const getReviewsByBook = (id) => async dispatch => {
     const res = await axios.get(`http://localhost:8082/api/review/getbybookid/${id}`);
-    console.log("\nAll books data has been retrieved from database.\n");
+    console.log("\nAll reviews data has been retrieved from database.\n");
+    console.log(res);
+    console.log(res.data);
+
     dispatch({
         type: GET_REVIEWS_BY_BOOK,
         payload: res.data
