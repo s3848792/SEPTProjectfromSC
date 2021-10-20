@@ -21,14 +21,19 @@ class ViewSingleBook extends Component {
         // this.props.books will be all the books that the user has entered in the database.
         if (!(this.props.book === undefined )) {
             return (
-                <div>
-
-                    <li key={"Title"}>Title: {this.props.book.title}</li>
-                    <li key={"Author"}>Author: {this.props.book.author}</li>
-                    <li key={"status"}>status: {this.props.book.status}</li>
-                    <ReviewsForBook valueFromParent={this.state.id}/>
+                <div className="Book">
+                    <div className="container">
+                        <div className="row">
+                            <section>
+                                <h1>{this.props.book.title}</h1>
+                                <h4>Written by {this.props.book.author}</h4>
+                                <br/>
+                                <br/>
+                                <ReviewsForBook valueFromParent={this.state.id}/>
+                            </section>
+                        </div>
+                    </div>
                 </div>
-
             );
 
         }

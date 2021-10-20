@@ -41,11 +41,8 @@ class ReviewsForBook extends Component {
     render() {
         // this.props.books will be all the books that the user has entered in the database.
         return (
-            <div className="Book">
-                <div className="container">
-                    <div className="row">
                         <section>
-                            <nav>
+                            <div>
                                 {this.shouldLeaveReview()}
                                 <br/>
                                 <br/>
@@ -65,11 +62,8 @@ class ReviewsForBook extends Component {
                                         <br/>
                                     </div>
                                 ))}
-                            </nav>
+                            </div>
                         </section>
-                    </div>
-                </div>
-            </div>
         );
     }
 }

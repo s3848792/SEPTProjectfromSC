@@ -3,23 +3,40 @@ import React, { Component } from 'react'
  class Footer extends Component {
     render() {
         return (
-            <div>
-            <div class="footer-basic">
-                    <footer>
-                        <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
-                        <ul class="list-inline">
-                            <li class="list-inline-item"><a href="#">Home</a></li>
-                            <li class="list-inline-item"><a href="#">Services</a></li>
-                            <li class="list-inline-item"><a href="#">About</a></li>
-                            <li class="list-inline-item"><a href="#">Terms</a></li>
-                            <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-                        </ul>
-                        <p class="copyright">Company Name © 2018</p>
-                    </footer>
+            <footer className="page-footer font-small special-color-dark pt-4">
+                <div className="container">
+                    <ul className="list-unstyled list-inline text-center">
+                        <li className="list-inline-item">
+                            <a className="btn-floating btn-fb mx-1">
+                                <i className="fab fa-facebook-f"> </i>
+                            </a>
+                        </li>
+                        <li className="list-inline-item">
+                            <a className="btn-floating btn-tw mx-1">
+                                <i className="fab fa-twitter"> </i>
+                            </a>
+                        </li>
+                        <li className="list-inline-item">
+                            <a className="btn-floating btn-gplus mx-1">
+                                <i className="fab fa-google-plus-g"> </i>
+                            </a>
+                        </li>
+                        <li className="list-inline-item">
+                            <a className="btn-floating btn-li mx-1">
+                                <i className="fab fa-linkedin-in"> </i>
+                            </a>
+                        </li>
+                        <li className="list-inline-item">
+                            <a className="btn-floating btn-dribbble mx-1">
+                                <i className="fab fa-dribbble"> </i>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
-            </div>
+                <div className="footer-copyright text-center py-3">© 2021 Copyright:
+                    <a href="https://mdbootstrap.com/"> Bookeroo.com</a>
+                </div>
+            </footer>
         )
     }
 }
