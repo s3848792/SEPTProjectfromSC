@@ -22,6 +22,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
         jsr250Enabled = true,
         prePostEnabled = true
 )
+
+//Security Configuration for book objects, protects from unwanted operations
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override

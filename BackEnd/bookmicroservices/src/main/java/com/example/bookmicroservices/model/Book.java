@@ -1,6 +1,6 @@
 package com.example.bookmicroservices.model;
 
-
+//The class model for 'Book' objects
 
 
 import javax.persistence.*;
@@ -11,21 +11,22 @@ import java.util.Date;
 @Entity
 public class Book {
     @Id
-    private Long id;
+    private Long id;//the identifier used as the primary key in the database
 
     @NotBlank(message="Title is Required")
-    private String title;
+    private String title;//title attribute
     @NotBlank(message="Author is Required")
-    private String author;
+    private String author;//author attribute
     @NotBlank(message="ISBN is Required")
-    private String isbn;
-    private Date create_At;
+    private String isbn;//ISBN attribute
+    private Date create_At;//bate attributes for creation and latest update
     private Date update_At;
 
 
     public Book() {
     }
 
+    //getter and setter methods
     public Long getId() {
         return id;
     }
@@ -74,7 +75,7 @@ public class Book {
         this.update_At = update_At;
     }
 
-    @PrePersist
+    @PrePersist//date setters for the database
     protected void onCreate() {
         this.create_At = new Date();
     }
@@ -84,7 +85,9 @@ public class Book {
         this.update_At = new Date();
     }
 
-
-
-
+//    Overridden method for setting id from int instead of long
+    public void setId(int i) {
+        Long x = Long.valueOf(i);
+        this.id = x;
+    }
 }

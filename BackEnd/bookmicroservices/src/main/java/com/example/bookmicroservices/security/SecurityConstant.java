@@ -1,6 +1,7 @@
 package com.example.bookmicroservices.security;
 
 public class SecurityConstant {
+    //security constants used by the security config
 
     public static final String SIGN_UP_URLS = "/api/users/**";
     public static final String H2_URL = "h2-console/**";

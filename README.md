@@ -30,7 +30,7 @@ To run the application locally :
 
 ## Frontend
 To run these commands, you may be able to run within intellij however for me it only worked running it in wsl once intellij was closed. I think this is because intellij keeps some files open in the background which stops docker from building properly.
-First, cd into the frontend folder.
+First, cd into the frontend folder, then myfirstapp.
 To build the docker image, run the following:
 #### `docker build -t frontend .`
 

@@ -14,13 +14,13 @@ import javax.validation.Valid;
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api/book")
-public class bookController {
+public class bookController {//controller, handles interaction between the react frontend and backend service
 
     @Autowired
-    private BookService bookService;
+    private BookService bookService;//declares bookservice variable
 
 
-    @PostMapping("/addbook")
+    @PostMapping("/addbook")//adds new book to backend
     public ResponseEntity<?> createNewBook(@Valid @RequestBody Book book, BindingResult result){
         if(result.hasErrors()){
             System.out.println("It has errors. Here they are");
@@ -28,20 +28,21 @@ public class bookController {
             return new ResponseEntity<String>("Invalid Book Entry", HttpStatus.BAD_REQUEST);
         }
         System.out.println("Making the updated book");
+
         Book newBook = bookService.saveOrUpdateBook(book);
         System.out.println("new book is created. Now returning");
         return  new ResponseEntity<Book>(newBook, HttpStatus.CREATED);
     }
 
     @ResponseBody
-    @GetMapping("/all")
+    @GetMapping("/all")//returns book list to frontend
     public Iterable<Book> getBook() {
         System.out.println("Getting all Books");
         return bookService.getBooks();
     }
 
 
-    @GetMapping("get/{id}")
+    @GetMapping("get/{id}")//returns book given its id
     public Book getBookByID(@PathVariable(value = "id") long bookId){
         System.out.println("The get book thing has been called and is running from backed");
         Book b = bookService.loadBookById(bookId);

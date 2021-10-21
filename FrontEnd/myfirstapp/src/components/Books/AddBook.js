@@ -28,12 +28,12 @@ class AddBook extends Component {
     onSubmit(e){
         e.preventDefault();
         const newBook = {
-            id: this.state.id,
+            id: -this.state.id,
             title: this.state.title,
             author: this.state.author,
             isbn: this.state.isbn,
-            create_At: this.state.create_At,
-            update_At: this.state.update_At
+            create_At: Date.now(),
+            update_At: Date.now()
         }
 
         this.props.createBook(newBook, this.props.history);
@@ -84,22 +84,6 @@ class AddBook extends Component {
                                 />
                             </div>
 
-                            <h6>Created At</h6>
-                            <div className="form-group">
-                                <input type="date" className="form-control form-control-lg"
-                                name="create_At"
-                                value= {this.state.create_At}
-                                onChange = {this.onChange}
-                                />
-                            </div>
-                            <h6>Updated At</h6>
-                            <div className="form-group">
-                                <input type="date" className="form-control form-control-lg"
-                                name="update_At"
-                                value= {this.state.update_At}
-                                onChange = {this.onChange}
-                                />
-                            </div>
 
                             <input type="submit" className="btn btn-primary btn-block mt-4" />
                         </form>
