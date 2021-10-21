@@ -1,0 +1,7 @@
+/Users/work/IdeaProjects/SEPTProjectfromSC/BackEnd/reviewmicroservices/src/main/java/com/example/reviewmicroservices/ReviewmicroservicesApplication.java
+/Users/work/IdeaProjects/SEPTProjectfromSC/BackEnd/reviewmicroservices/src/main/java/com/example/reviewmicroservices/Repositories/ReviewRepository.java
+/Users/work/IdeaProjects/SEPTProjectfromSC/BackEnd/reviewmicroservices/src/main/java/com/example/reviewmicroservices/security/SecurityConfig.java
+/Users/work/IdeaProjects/SEPTProjectfromSC/BackEnd/reviewmicroservices/src/main/java/com/example/reviewmicroservices/model/Review.java
+/Users/work/IdeaProjects/SEPTProjectfromSC/BackEnd/reviewmicroservices/src/main/java/com/example/reviewmicroservices/security/SecurityConstant.java
+/Users/work/IdeaProjects/SEPTProjectfromSC/BackEnd/reviewmicroservices/src/main/java/com/example/reviewmicroservices/services/ReviewService.java
+/Users/work/IdeaProjects/SEPTProjectfromSC/BackEnd/reviewmicroservices/src/main/java/com/example/reviewmicroservices/web/reviewController.java
