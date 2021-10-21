@@ -17,6 +17,7 @@ import BookView from "./components/Books/Books"
 import ViewSingleBook from "./components/Books/Book";
 import User from "./components/UserManagement/User";
 import BookSearch from "./components/Books/BookSearch";
+import LeaveReview from "./components/Reviews/LeaveReview";
 
 
 class App extends Component {
@@ -38,11 +39,15 @@ class App extends Component {
             <Route exact path="/book/:id" component={ViewSingleBook} />
             <Route exact path="/profile" component={User} />
             <Route exact path="/search/:keyword" component={BookSearch} />
+            <Route exact path="/leaveReview/:book" component={LeaveReview} />
             {
               //Private Routes
             }
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/addPerson" component={AddPerson} />
+            <br/>
+            <br/>
+            <br/>
             <Footer />
           </div>
         </Router>
