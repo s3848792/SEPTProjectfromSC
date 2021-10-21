@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 
 
-class ViewSingleBook extends Component {
+class ViewSingleBook extends Component {//view of a single book
     constructor(props) {
         super(props);
         const {id} = props.match.params

@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import {createBook} from "../../actions/bookActions";
 
 
-class AddBook extends Component {
+class AddBook extends Component {//form to create new book or update old one
     constructor(){
         super();
 
@@ -22,10 +22,10 @@ class AddBook extends Component {
 
         }
 
-    onChange(e){
+    onChange(e){//actions taken when clicking out of form box
         this.setState({[e.target.name]: e.target.value});
     }
-    onSubmit(e){
+    onSubmit(e){//actions taken when submitting form
         e.preventDefault();
         const newBook = {
             id: -this.state.id,
@@ -46,6 +46,7 @@ class AddBook extends Component {
                     <div className="col-md-8 m-auto">
                         <h5 className="display-4 text-center">Create / Edit Book form</h5>
                         <hr />
+                        {/*html form for book*/}
                         <form onSubmit={this.onSubmit}>
                             <div className="form-group">
                                 <input type="text" className="form-control form-control-lg "

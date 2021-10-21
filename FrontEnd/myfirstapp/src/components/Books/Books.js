@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 
 
-class ViewBook extends Component {
+class ViewBook extends Component {//view of all books in the database
     constructor(props) {
         super(props);
         props.getBooks();
