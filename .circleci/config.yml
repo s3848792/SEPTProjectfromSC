@@ -23,23 +23,22 @@ jobs:
       - store_artifacts:
           path: target/reviewmicroservices-0.0.1.jar
 
+  test:
+    working_directory: ~/src
+    docker:
+      - image: circleci/openjdk:stretch
+    steps:
+      - checkout
+      - run: mvn test
+      - store_test_results:
+          path: target/surefire-reports
 
-#  test:
-#    working_directory: ~/src
-#    docker:
-#      - image: circleci/openjdk:stretch
-#    steps:
-#      - checkout
-#      - run: mvn test
-#      - store_test_results:
-#          path: target/surefire-reports
-#
-#workflows:
-#  version: 2
-#
-#  build-then-test:
-#    jobs:
-#      - build
-#      - test:
-#          requires:
-#            - build
+workflows:
+  version: 2
+
+  build-then-test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
