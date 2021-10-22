@@ -21,7 +21,7 @@ jobs:
           key: circleci-SEPTProjectfromSC-{{ checksum "pom.xml" }}
       - run: mvn package
       - store_artifacts:
-          path: target/bookmicroservices-0.0.1.jar
+          path: target/reviewmicroservices-0.0.1.jar
 
   test:
     working_directory: ~/src
