@@ -33,7 +33,7 @@ class Login extends Component {
 
     render() {
         return (
-            <div className="login">
+            <div data-testid="Login" className="login">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-8 m-auto">
