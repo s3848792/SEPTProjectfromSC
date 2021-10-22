@@ -13,20 +13,17 @@ public class ReviewService {
     @Autowired
     private ReviewRepository reviewRepository;
 
+    //Saves or updates a review in the database
     public Review saveOrUpdateReview(Review review) {
         return reviewRepository.save(review);
     }
 
+    //Gets all reviews from the database
     public Iterable<Review> getReviews() { return reviewRepository.findAll(); }
 
+    //Gets all reviews for a given book id
     public Iterable<Review> getByBookID(String id){
         return reviewRepository.getByBookID(id);
-    }
-
-    @Transactional
-    public Review loadReviewById(Long id){
-        Review review = reviewRepository.getById(id);
-        return review;
     }
 
 }
