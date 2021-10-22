@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Search from './search';
+import Search from './Search';
 
 
  class Header extends Component {
@@ -43,7 +43,7 @@ import Search from './search';
 
     render() {
         return (
-            <div>
+            <div data-testid="Header">
             <nav className="navbar navbar-expand-sm navbar-dark bg-primary mb-4">
             <div className="container">
                 <a className="navbar-brand" href="/">

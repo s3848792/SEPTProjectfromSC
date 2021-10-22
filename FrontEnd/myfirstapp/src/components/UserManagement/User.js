@@ -25,7 +25,7 @@ class User extends Component {
         return (
            <div>
                <h1>{this.state.username}</h1>
-               <button onClick={this.logout} className="submit">Logout</button>
+               <button data-testid="User" onClick={this.logout} className="submit">Logout</button>
            </div>
         )
     }

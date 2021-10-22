@@ -1,0 +1,40 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/src
+    docker:
+      - image: circleci/openjdk:stretch
+      - image: circleci/postgres:9.6.3-alpine
+        environment:
+          POSTGRES_USER: root
+          POSTGRES_DB: circle-test
+    steps:
+      - checkout:
+
+  deploy:
+    working_directory: ~/src
+    docker:
+      - image: circleci/openjdk:stretch
+      - image: circleci/postgres:9.6.3-alpine
+        environment:
+          POSTGRES_USER: root
+          POSTGRES_DB: circle-test
+    steps:
+      - checkout:
+      - run:
+          name: Install awscli
+          command: sudo pip install awscli
+      - run:
+          name: Deploy to S3
+          command: aws s3 sync <path/to/bucket> <s3://location/in/S3-to-deploy-to>
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master

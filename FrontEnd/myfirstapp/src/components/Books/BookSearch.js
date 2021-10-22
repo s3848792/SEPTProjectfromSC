@@ -22,7 +22,7 @@ class BookSearch extends Component {
     render() {
         // this.props.books will be all the books that the user has entered in the database.
         return (
-            <div className="Book">
+            <div data-testid="BookSearch" className="Book">
                 <div className="container">
                     <div className="row">
                         <section>

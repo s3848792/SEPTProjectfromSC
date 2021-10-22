@@ -20,7 +20,7 @@ class ViewBook extends Component {
     render() {
         // this.props.books will be all the books that the user has entered in the database.
         return (
-            <div className="Book">
+            <div data-testid="Books" className="Book">
                 <div className="container">
                     <div className="row">
                         <section>

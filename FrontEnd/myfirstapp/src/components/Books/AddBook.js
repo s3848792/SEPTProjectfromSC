@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import {createBook} from "../../actions/bookActions";
+import ReactDOM from "react-dom";
 
 
 class AddBook extends Component {
@@ -52,7 +53,7 @@ class AddBook extends Component {
     }
     render() {
         return (
-            <div className="Book">
+            <div data-testid="AddBook" className="Book">
             <div className="container">
                 <div className="row">
                     <div className="col-md-8 m-auto">
@@ -138,7 +139,7 @@ class AddBook extends Component {
                 </div>
             </div>
         </div>
-        )
+        );
     }
 }
 AddBook.propTypes = {
