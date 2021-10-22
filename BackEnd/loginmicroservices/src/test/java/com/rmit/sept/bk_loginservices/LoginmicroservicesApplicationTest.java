@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 
 //@SpringBootTest
-class msloginTests {
+class LoginmicroservicesApplicationTest {
 
     @Test
     void contextLoads() {

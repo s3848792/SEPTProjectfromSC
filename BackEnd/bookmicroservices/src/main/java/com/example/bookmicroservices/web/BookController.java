@@ -17,7 +17,7 @@ import javax.validation.Valid;
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api/book")
-public class bookController {
+public class BookController {
 
     @Autowired
     private BookService bookService;

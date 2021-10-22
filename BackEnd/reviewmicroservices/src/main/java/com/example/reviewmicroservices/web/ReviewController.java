@@ -14,7 +14,7 @@ import javax.validation.Valid;
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api/review")
-public class reviewController {
+public class ReviewController {
 
     @Autowired
     private ReviewService reviewService;
