@@ -9,8 +9,8 @@ jobs:
           POSTGRES_USER: root
           POSTGRES_DB: circle-test
     steps:
-      - checkout
-      - run: mvn package
+      - checkout:
+
   deploy:
     working_directory: ~/src
     docker:
