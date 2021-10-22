@@ -23,6 +23,7 @@ jobs:
       - store_artifacts:
           path: target/reviewmicroservices-0.0.1.jar
 
+
   test:
     working_directory: ~/src
     docker:
