@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 class Landing extends Component {
   render() {
     return (
-      <div className="landing">
+      <div data-testid="Landing" className="landing">
         <div className="light-overlay landing-inner text-dark">
           <div className="container">
             <div className="row">

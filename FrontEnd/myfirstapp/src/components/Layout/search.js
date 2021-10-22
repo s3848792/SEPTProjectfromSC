@@ -25,7 +25,7 @@ class SearchBar extends Component {
         return (
             <form onSubmit={this.handleSubmit}>
                 <label htmlFor="header-search">
-                    <span className="visually-hidden">Search</span>
+                    <span data-testid="Search" className="visually-hidden">Search</span>
                 </label>
                 <input
                     type="text"
