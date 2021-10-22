@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM, {render} from 'react-dom';
-import Search from "./../Search";
+import Search from "../Search";
 
 import { render, cleanup } from '@testing-library/react';
 import rederer from 'react-test-renderer'
