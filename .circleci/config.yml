@@ -21,25 +21,24 @@ jobs:
           key: circleci-SEPTProjectfromSC-{{ checksum "pom.xml" }}
       - run: mvn package
       - store_artifacts:
-          path: target/bookmicroservices-0.0.1.jar
+          path: target/spring-boot-demo-0.0.1.jar
 
-
-  test:
-    working_directory: ~/src
-    docker:
-      - image: circleci/openjdk:stretch
-    steps:
-      - checkout
-      - run: mvn test
-      - store_test_results:
-          path: target/surefire-reports
-
-workflows:
-  version: 2
-
-  build-then-test:
-    jobs:
-      - build
-      - test:
-          requires:
-            - build
+#  test:
+#    working_directory: ~/src
+#    docker:
+#      - image: circleci/openjdk:stretch
+#    steps:
+#      - checkout
+#      - run: mvn test
+#      - store_test_results:
+#          path: target/surefire-reports
+#
+#workflows:
+#  version: 2
+#
+#  build-then-test:
+#    jobs:
+#      - build
+#      - test:
+#          requires:
+#            - build
