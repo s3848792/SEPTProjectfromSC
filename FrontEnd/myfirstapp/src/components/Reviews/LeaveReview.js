@@ -62,7 +62,7 @@ class LeaveReview extends Component {
     }
     render() {
         return (
-            <div className="Book">
+            <div data-testid="LeaveReview" className="Book">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-8 m-auto">
