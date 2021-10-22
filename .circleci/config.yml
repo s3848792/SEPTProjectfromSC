@@ -1,6 +1,4 @@
-version: 2.1
-  orbs:
-    aws-s3: circleci/aws-s3@x.y.z # use the AWS S3 orb in your config
+version: 2
 
   jobs: # Define the build and deploy jobs
     build:
@@ -13,20 +11,20 @@ version: 2.1
             POSTGRES_DB: circle-test # context / project UI env-var reference
     ... # build job steps omitted for brevity
     deploy:
-      docker: # Use the Docker executor for the deploy job
-        - image: <image-name-and-tag>  # Specify the Docker image to use for the deploy job
-          auth:
-            username: mydockerhub-user
-            password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
-    steps:
-      - checkout
-      - aws-s3/sync:
-          from: bucket
-          to: 's3://my-s3-bucket-name/prefix'
-          arguments: | # Optional arguments
-            --acl public-read \
-            --cache-control "max-age=86400"
-          overwrite: true # default is false
+      working_directory: ~/src
+      docker: # Use the Docker executor for the build job
+        - image: circleci/openjdk:stretch # Specify the Docker image to use for the build job
+        - image: circleci/postgres:9.6.3-alpine
+          environment:
+            POSTGRES_USER: root
+            POSTGRES_DB: circle-test # context / project UI env-var reference
+      steps:
+        - run: # Install the AWS CLI if it is not already included in the docker image
+            name: Install awscli
+            command: sudo pip install awscli
+        - run: # Deploy to S3 using the sync command
+            name: Deploy to S3
+            command: aws s3 sync <path/to/bucket> <s3://location/in/S3-to-deploy-to>
 
   workflows: # Define a Workflow running the build job, then the deploy job
     version: 2
@@ -39,3 +37,4 @@ version: 2.1
             filters:
               branches:
                 only: master # Only deploy when the commit is on the Master branch
+
