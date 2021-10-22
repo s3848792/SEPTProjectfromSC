@@ -21,7 +21,7 @@ class ViewSingleBook extends Component {
         // this.props.books will be all the books that the user has entered in the database.
         if (!(this.props.book === undefined )) {
             return (
-                <div className="Book">
+                <div data-testid="Book" className="Book">
                     <div className="container">
                         <div className="row">
                             <section>
