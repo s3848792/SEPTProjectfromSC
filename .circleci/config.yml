@@ -1,36 +1,39 @@
 version: 2
+jobs:
 
-  workflows: # Define a Workflow running the build job, then the deploy job
-    version: 2
-    build-deploy:
-      jobs:
-        - build
-        - deploy:
-            requires:
-              - build
-            filters:
-              branches:
-                only: master # Only deploys when the commit is on the Master branch
+  build:
+    working_directory: ~/src
+    docker:
+      - image: circleci/openjdk:stretch
+      - image: circleci/postgres:9.6.3-alpine
+        environment:
+          POSTGRES_USER: root
+          POSTGRES_DB: circle-test
 
-  jobs:
-    build:
-      docker: # Specify executor for running build job - this example uses a Docker container
-        - image: <docker-image-name-tag> # Specify docker image to use
-          auth:
-            username: mydockerhub-user
-            password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
-    ... # build job steps omitted for brevity
-    deploy:
-      docker: # Specify executor for running deploy job
-        - image: <docker-image-name-tag> # Specify docker image to use
-          auth:
-            username: mydockerhub-user
-            password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
-      steps:
-        - run: # Install the AWS CLI if it is not already included in the docker image
-            name: Install awscli
-            command: sudo pip install awscli
-        - run: # Deploy to S3 using the sync command
-            name: Deploy to S3
-            command: aws s3 sync <path/to/bucket> <s3://location/in/S3-to-deploy-to>
+  deploy:
+    working_directory: ~/src
+    docker:
+      - image: circleci/openjdk:stretch
+      - image: circleci/postgres:9.6.3-alpine
+        environment:
+          POSTGRES_USER: root
+          POSTGRES_DB: circle-test
+    steps:
+      - run:
+          name: Install awscli
+          command: sudo pip install awscli
+      - run:
+          name: Deploy to S3
+          command: aws s3 sync <path/to/bucket> <s3://location/in/S3-to-deploy-to>
 
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
