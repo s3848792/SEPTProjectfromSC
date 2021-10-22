@@ -1,9 +1,7 @@
-com/rmit/sept/turtorial/demo/services/PersonService.class
-com/rmit/sept/turtorial/demo/exceptions/PersonException.class
-com/rmit/sept/turtorial/demo/web/PersonController.class
-com/rmit/sept/turtorial/demo/DemoApplication.class
-com/rmit/sept/turtorial/demo/model/Person.class
-com/rmit/sept/turtorial/demo/exceptions/CustomResponseEntityExceptionHandler.class
-com/rmit/sept/turtorial/demo/exceptions/PersonIdExceptionResponse.class
-com/rmit/sept/turtorial/demo/Repositories/PersonRepository.class
-com/rmit/sept/turtorial/demo/services/MapValidationErrorService.class
+com/example/reviewmicroservices/web/reviewController.class
+com/example/reviewmicroservices/ReviewmicroservicesApplication.class
+com/example/reviewmicroservices/Repositories/ReviewRepository.class
+com/example/reviewmicroservices/model/Review.class
+com/example/reviewmicroservices/security/SecurityConfig.class
+com/example/reviewmicroservices/services/ReviewService.class
+com/example/reviewmicroservices/security/SecurityConstant.class
