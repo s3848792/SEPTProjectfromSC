@@ -11,12 +11,7 @@ public interface ReviewRepository extends CrudRepository<Review, Long> {
 
     Review getById(Long id);
 
-//    @Query(value = "Select * FROM review WHERE "
-//            + "MATCH(bookid)"
-//            + "AGAINST (?1)",
-//            nativeQuery = true)
-//    Iterable<Review> getByBookID (String keyword);
-
+    //Query to get all books with the given book id from the database.
     @Query(value = "SELECT * FROM review WHERE bookid = :bid", nativeQuery = true)
     Iterable<Review> getByBookID (@Param("bid") String bid);
 }

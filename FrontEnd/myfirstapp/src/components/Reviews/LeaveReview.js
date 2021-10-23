@@ -8,9 +8,14 @@ class LeaveReview extends Component {
 
     constructor(props){
         super(props);
+
+        //Gets the bookID from the url
         const {book} = props.match.params;
+
+        //Gets the username from this token
         var token = JSON.parse(localStorage.saveData || null) || {};
-        console.log(token);
+
+        //Sets state variables
         this.state= {
             id: 0,
             bookID: book,
@@ -31,9 +36,12 @@ class LeaveReview extends Component {
 
     onSubmit(e){
         e.preventDefault();
+        //Gets the date the review was added to the database
         const date = new Date();
+        //Auto generates a unique reviewID then hashes it
         const reviewID = this.state.bookID + this.state.userID + date;
         const newRevID = sdbm(reviewID);
+        //Creates a new review from state
         const newRev = {
             id: newRevID,
             bookID: this.state.bookID,
@@ -42,9 +50,12 @@ class LeaveReview extends Component {
             rating: this.state.rating,
             create_At: date
         }
+
+        //Calls the reviewAction to add the review to the database.
         this.props.addReview(newRev, this.props.history);
     }
 
+    //Below methods are used to aid in selected number of stars from radio buttons
     oneIsSelected() {
         this.state.rating=1;
     }
@@ -111,6 +122,7 @@ class LeaveReview extends Component {
     }
 }
 
+//Generates a hash for a given string
 const sdbm = str => {
     let arr = str.split('');
     return arr.reduce(
@@ -124,6 +136,7 @@ LeaveReview.propTypes = {
     createProject: PropTypes.func.isRequired
 };
 
+//Connects this file to the reviewActions class
 export default connect(
     null,
     { addReview }

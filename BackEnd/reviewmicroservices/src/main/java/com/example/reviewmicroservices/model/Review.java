@@ -19,11 +19,14 @@ public class Review {
     @NotBlank(message="User ID is required")
     private String userID;
 
+    //The text review of the book.
     @NotBlank(message="Review is required")
     private String review;
 
+    //The rating out of five stars for the book.
     private int rating;
 
+    //The date the review was created.
     private Date create_At;
 
 

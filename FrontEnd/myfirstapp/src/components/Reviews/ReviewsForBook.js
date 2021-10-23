@@ -8,31 +8,28 @@ import LeaveReviewButton from "./LeaveReviewButton";
 class ReviewsForBook extends Component {
     constructor(props) {
         super(props);
+        //Gets the review ID from parent (Book.js) file
         const id = this.props.valueFromParent;
-        console.log("Below is the ID");
-        console.log(id);
+        //Gets all reviews by the book ID
         props.getReviewsByBook(id);
         this.state= {
             reviews: null,
             bookID: id
         };
     }
+
+    //Checks whether the current user is logged in to determine whether they can leave a review or not.
     shouldLeaveReview() {
         const token = JSON.parse(localStorage.saveData || null) || {};
-        console.log("Token");
-        console.log(token);
-        console.log(token.loginToken.success)
         try {
             if (token.loginToken.success) {
                 return LeaveReviewButton(this.state.bookID);
             }else {
-                console.log("token else")
                 return (
                     <p>You need to login to review this book</p>
                 )
             }
         }catch {
-            console.log("catch part");
             return (
                 <p>You need to login to review this book</p>
             )
@@ -72,6 +69,7 @@ ReviewsForBook.propTypes = {
     createProject: PropTypes.func.isRequired
 };
 
+//Connects the state to the dispatch from getReviewsByBook from bookActions.js
 function mapStateToProps(state, ownProps) {
     console.log(state)
     return {reviews: state.review.reviews}
